@@ -87,6 +87,14 @@ type SourceMapsOptions = {
  */
 export type SentryNuxtModuleOptions = {
   /**
+   * client config file to override default
+   */
+  clientConfigFile?: string;
+  /**
+   * server config file to override default
+   */
+  serverConfigFile?: string;
+  /**
    * Options for the Sentry Vite plugin to customize the source maps upload process.
    *
    * These options are always read from the `sentry` module options in the `nuxt.config.(js|ts).

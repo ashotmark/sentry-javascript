@@ -10,7 +10,7 @@ export type ModuleOptions = SentryNuxtModuleOptions;
 
 export default defineNuxtModule<ModuleOptions>({
   meta: {
-    name: '@sentry/nuxt/module',
+    name: '@gambalabs/sentry-nuxt/module',
     configKey: 'sentry',
     compatibility: {
       nuxt: '^3.0.0',
@@ -21,7 +21,7 @@ export default defineNuxtModule<ModuleOptions>({
     const moduleDirResolver = createResolver(import.meta.url);
     const buildDirResolver = createResolver(nuxt.options.buildDir);
 
-    const clientConfigFile = findDefaultSdkInitFile('client');
+    const clientConfigFile = moduleOptions.clientConfigFile || findDefaultSdkInitFile('client');
 
     if (clientConfigFile) {
       // Inject the client-side Sentry config file with a side effect import
@@ -45,7 +45,7 @@ export default defineNuxtModule<ModuleOptions>({
       addPlugin({ src: moduleDirResolver.resolve('./runtime/plugins/sentry.client'), mode: 'client' });
     }
 
-    const serverConfigFile = findDefaultSdkInitFile('server');
+    const serverConfigFile = moduleOptions.serverConfigFile || findDefaultSdkInitFile('server');
 
     if (serverConfigFile) {
       // Inject the server-side Sentry config file with a side effect import
