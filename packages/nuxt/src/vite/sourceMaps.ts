@@ -71,7 +71,7 @@ function getPluginOptions(
     telemetry: sourceMapsUploadOptions.telemetry ?? true,
     sourcemaps: {
       assets:
-        sourceMapsUploadOptions.sourcemaps?.assets ?? isNitro ? ['./.output/server/**/*'] : ['./.output/public/**/*'],
+        sourceMapsUploadOptions.sourcemaps?.assets ?? (isNitro ? ['./.output/server/**/*'] : ['./.output/public/**/*']),
       ignore: sourceMapsUploadOptions.sourcemaps?.ignore ?? undefined,
       filesToDeleteAfterUpload: sourceMapsUploadOptions.sourcemaps?.filesToDeleteAfterUpload ?? undefined,
       rewriteSources: (source: string) => normalizePath(source),
