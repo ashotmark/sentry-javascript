@@ -1,5 +1,5 @@
 {
-  "name": "@sentry/nuxt",
+  "name": "@gambalabs/sentry-nuxt",
   "version": "8.31.0",
   "description": "Official Sentry SDK for Nuxt (EXPERIMENTAL)",
   "repository": "git://github.com/getsentry/sentry-javascript.git",
